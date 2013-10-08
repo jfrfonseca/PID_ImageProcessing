@@ -3,23 +3,43 @@ package processamentoimagem;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 public class ProcessamentoImagem {
 
-    protected static int[][] matrix;
+    protected static ArrayList<int[][]> matrizes = new ArrayList<int[][]>();
+    protected static ArrayList<String> imageName = new ArrayList<String>();
 
     public static void main(String[] args) throws IOException {
+        Negativo neg = new Negativo();
+        Soma som = new Soma();
+        Subtracao sub = new Subtracao();
+        Potencia pot = new Potencia(Double.parseDouble(args[2]), Double.parseDouble(args[3]));
+        
+        
         readImage(args[0]);
-
+        readImage(args[1]);
+        
+        neg.processarImagem(matrizes);
+        neg.printResultado(imageName);
+        
+        som.processarImagem(matrizes);
+        som.printResultado(imageName);
+        
+        sub.processarImagem(matrizes);
+        sub.printResultado(imageName);
+        
+        pot.processarImagem(matrizes);
+        pot.printResultado(imageName);
 
     }
 
-    private static void readImage(String imageName) {
-        //reads a image, and fill out the working matrix, and prints a grayscale copy of the image---------
+    private static void readImage(String _imageName) {
+        //reads a image, and fill out the working matriz, and prints a grayscale copy of the image---------
         BufferedImage imagem, imagemPB;
-
-        File foto = new File(imageName);
+        imageName.add(_imageName);
+        File foto = new File(imageName.get(imageName.size()-1));
 
         try {
             imagem = ImageIO.read(foto);
@@ -29,7 +49,7 @@ public class ProcessamentoImagem {
             int rgb, alpha, red, green, blue;
             int gray;
 
-            matrix = new int[h][w];
+            int[][] matriz = new int[h][w];
 
             imagemPB = new BufferedImage(w, h, BufferedImage.TYPE_3BYTE_BGR);
 
@@ -46,9 +66,9 @@ public class ProcessamentoImagem {
                     blue = (rgb) & 0xFF;
                     //System.out.print("\t"+alpha+","+red+","+green+","+blue);
 
-                    //converts to 1 byte grayscale, and saves to the working matrix
+                    //converts to 1 byte grayscale, and saves to the working matriz
                     gray = (int) (Math.round(red * 0.3 + green * 0.59 + blue * 0.11));
-                    matrix[i][j] = gray;
+                    matriz[i][j] = gray;
 
                     //converts to 3 bytes grayscale
                     gray = gray + (gray << 8) + (gray << 16);
@@ -59,8 +79,8 @@ public class ProcessamentoImagem {
                     //System.out.print("\t"+gray);
                 }
             }
-            System.out.println("Done reading image '" + imageName + "'. Saving GrayScale output;");
-            ImageIO.write(imagemPB, "PNG", new File(imageName + "_GS.png"));
+            ImageIO.write(imagemPB, "PNG", new File(imageName.get(0) + "_GS.png"));
+            matrizes.add(matriz);
         } catch (IOException e) {
         }
     }
