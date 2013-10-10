@@ -13,6 +13,9 @@ public class ProcessamentoImagem {
     protected static IFuncao func;
 
     public static void main(String[] args){
+        Interface face = new Interface();
+        
+        
         Boolean processar = true;
         if (args.length>=2){
             readImage(args[0]);
@@ -28,6 +31,11 @@ public class ProcessamentoImagem {
                                 func = new Subtracao();
                             }
                             break;
+                case 'f':   switch (args[2].charAt(1)){//caso filtro, existe outro parametro para qual
+                                case 'l':   func = new FiltroLaplaciano();
+                                            break;
+                            }
+                            break;
                 case 'l':   func = new Limiar(Integer.parseInt(args[2]));
                             break;
                 default:    processar = false;
@@ -41,6 +49,8 @@ public class ProcessamentoImagem {
         }else{
             System.out.println("Erro! Ao menos um arquivo de imagem e uma operação devem ser passados como parâmetro!");
         }
+        
+        
 
     }
 
