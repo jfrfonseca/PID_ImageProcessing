@@ -10,28 +10,37 @@ public class ProcessamentoImagem {
 
     protected static ArrayList<int[][]> matrizes = new ArrayList<int[][]>();
     protected static ArrayList<String> imageName = new ArrayList<String>();
+    protected static IFuncao func;
 
-    public static void main(String[] args) throws IOException {
-        Negativo neg = new Negativo();
-        Soma som = new Soma();
-        Subtracao sub = new Subtracao();
-        Potencia pot = new Potencia(Double.parseDouble(args[2]), Double.parseDouble(args[3]));
-        
-        
-        readImage(args[0]);
-        readImage(args[1]);
-        
-        neg.processarImagem(matrizes);
-        neg.printResultado(imageName);
-        
-        som.processarImagem(matrizes);
-        som.printResultado(imageName);
-        
-        sub.processarImagem(matrizes);
-        sub.printResultado(imageName);
-        
-        pot.processarImagem(matrizes);
-        pot.printResultado(imageName);
+    public static void main(String[] args){
+        Boolean processar = true;
+        if (args.length>=2){
+            readImage(args[0]);
+            switch(args[1].charAt(1)){
+                case 'n':   func = new Negativo();
+                            break;
+                case 'p':   func = new Potencia(1.0, Double.parseDouble(args[2]));
+                            break;
+                case 's':   readImage(args[2]);
+                            if(args[1].charAt(2)=='o'){
+                                func = new Soma();
+                            }else{
+                                func = new Subtracao();
+                            }
+                            break;
+                case 'l':   func = new Limiar(Integer.parseInt(args[2]));
+                            break;
+                default:    processar = false;
+                            System.out.println("Erro! Operação inválida!");
+                            break;
+            }
+            if (processar){
+                func.processarImagem(matrizes);
+                func.printResultado(imageName);
+            }
+        }else{
+            System.out.println("Erro! Ao menos um arquivo de imagem e uma operação devem ser passados como parâmetro!");
+        }
 
     }
 
