@@ -5,6 +5,7 @@
 package processamentoimagem;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -20,15 +21,17 @@ public class FiltroModa extends Filtro implements IFuncao{
     public void processarImagem(ArrayList<int[][]> matrizes) {
         origem = matrizes.get(0);
         resultado = new int[origem.length][origem[0].length];
+        HashMap mapa = new HashMap();
         
-        int coordI, coordJ, recorde = 0, posSalva = 0;
+        Integer corMaisFrequente = 0, frequenciaAtual = 0;
+        Object check;
+        int coordI, coordJ, maiorFrequencia;
         
-        ArrayList conteudo = new ArrayList();
-        ArrayList quantidade = new ArrayList();
         
         for (int i=0; i<resultado.length; i++){
             for (int j=0; j<resultado[0].length; j++){//para cada pixel
-                conteudo.clear();
+                mapa.clear();
+                maiorFrequencia = 0;
                 for (int mi=0; mi<dimensao; mi++){
                     for (int mj=0; mj<dimensao; mj++){//para cada pixel da mascara
                         //pega a coordenada do visinho
@@ -36,28 +39,27 @@ public class FiltroModa extends Filtro implements IFuncao{
                         coordJ = j - dimensao/2 + mj;
                         //se o visinho existe
                         if ((coordI >= 0)&&(coordI < resultado.length)&&(coordJ >= 0)&&(coordJ < resultado[0].length)){
-                            //se um valor semelhante ja foi encontrado
-                            if (conteudo.contains(origem[coordI][coordJ])){
-                                //substitui a quantidade do tal valor encontrada no arraylist quantidade e adiciona mais um na quantidade de elementos deste valor
-                                quantidade.add(conteudo.indexOf(origem[coordI][coordJ]), (Integer)(quantidade.get(conteudo.indexOf(origem[coordI][coordJ])))+1);
-                                quantidade.remove(conteudo.indexOf(origem[coordI][coordJ])+1); //remove na posicao seguinte do valor o valor antigo que ali estava
+                            //recupera o valor da frequencia para a chave atual (pode ser null)
+                            check = mapa.get(origem[coordI][coordJ]);
+                            if(check==null){
+                                //se null, coloca o valor 1 para esta frequencia
+                                mapa.put(origem[coordI][coordJ], 1);
                             } else {
-                                //adiciona um novo valor ao historico
-                                conteudo.add(origem[coordI][coordJ]);
-                                quantidade.add(1); //e marca como este valor tendo sido encontrado apenas uma vez.
+                                //se nao null, captura o valor como inteiro
+                                frequenciaAtual = ((Integer)check);
+                                //e aumenta em uma unidade o valor da frequencia
+                                mapa.put(origem[coordI][coordJ], (frequenciaAtual+1));
+                            }
+                            //atualiza em todas as iteracoes o valor recorde para essa mascara
+                            if (frequenciaAtual > maiorFrequencia){
+                                maiorFrequencia = frequenciaAtual;
+                                corMaisFrequente = origem[coordI][coordJ];
                             }
                         }
                     }
                 }
-                //agora basta pegar o index do maior valor do arraylist quantidade
-                for (int pos = 0; pos<quantidade.size(); pos++){
-                    if (recorde < (Integer)quantidade.get(pos)){
-                        recorde = (Integer)quantidade.get(pos);
-                        posSalva = pos;
-                    }
-                }
-                //que sera o index do valor mais frequente na mascara, 
-                resultado[i][j] = (Integer)conteudo.get(posSalva);
+                //pega o elemento do meio. como o arrayList esta ordenado, este representa a mediana.
+                resultado[i][j] = corMaisFrequente;
             }
         }
     }
