@@ -34,6 +34,27 @@ public class ProcessamentoImagem {
                 case 'f':   switch (args[2].charAt(1)){//caso filtro, existe outro parametro para qual
                                 case 'l':   func = new FiltroLaplaciano();
                                             break;
+                                case 's':   func = new FiltroSuavizacao(Integer.parseInt(args[3]));
+                                            break;
+                                case 'c':   func = new FiltroCustomizado();
+                                            break;
+                                case 'm':   switch (args[2].charAt(2)){
+                                                case 'a':   func = new FiltroMax(Integer.parseInt(args[3]));
+                                                            break;
+                                                case 'i':   func = new FiltroMin(Integer.parseInt(args[3]));
+                                                            break;
+                                                case 'e':   func = new FiltroMediana(Integer.parseInt(args[3]));
+                                                            break;
+                                            /*    case 'o':   func = new FiltroModa(Integer.parseInt(args[3]));
+                                                            break;
+                                            */    default:    processar = false;
+                                                            System.out.println("Erro! Operação inválida!");
+                                                            break;
+                                            }
+                                            break;
+                                default:    processar = false;
+                                            System.out.println("Erro! Operação inválida!");
+                                            break;
                             }
                             break;
                 case 'l':   func = new Limiar(Integer.parseInt(args[2]));
@@ -48,10 +69,7 @@ public class ProcessamentoImagem {
             }
         }else{
             System.out.println("Erro! Ao menos um arquivo de imagem e uma operação devem ser passados como parâmetro!");
-        }
-        
-        
-
+        }  
     }
 
     private static void readImage(String _imageName) {

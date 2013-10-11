@@ -27,19 +27,33 @@ public class Filtro {
     
     public void aplicarMascara(){
         int mascarado;
-        for (int i=(dimensao/2); i<resultado.length-(dimensao/2); i++){
-            for (int j=0; j<resultado[0].length-(dimensao/2); j++){//para cada pixel
+        int coeficiente = 0;
+        Boolean atribuido = false;
+        for (int i=0; i<resultado.length; i++){
+            for (int j=0; j<resultado[0].length; j++){//para cada pixel
                 //se estiver em um dos cantos:
-                if ((i<dimensao/2)||(i>(resultado.length-(dimensao/2)))||(j<(dimensao/2))||(j>(resultado[0].length-(dimensao/2)))){
+                if ((i<dimensao/2)||(i>=(resultado.length-(dimensao/2)))||(j<(dimensao/2))||(j>=(resultado[0].length-(dimensao/2)))){
                     resultado[i][j]=origem[i][j];
                 } else {
                     mascarado = 0;
                     for (int mi=0; mi<dimensao; mi++){
                         for (int mj=0; mj<dimensao; mj++){//para cada pixel da mascara
                             mascarado += mascara[mi][mj]*origem[i-(dimensao/2)+mi][j-(dimensao/2)+mj];
+                            if (!atribuido){
+                                coeficiente += mascara[mi][mj];
+                            }
                         }
                     }
-                    resultado[i][j]=mascarado/(int)Math.pow(dimensao, 2.0);
+                    if (!atribuido){
+                        atribuido = true;
+                    }
+                    if(coeficiente == 0){
+                        coeficiente = 1;
+                    }
+                    if(coeficiente < 0){
+                        coeficiente *= -1;
+                    }
+                    resultado[i][j] = mascarado/coeficiente;
                 }
             }
         }
