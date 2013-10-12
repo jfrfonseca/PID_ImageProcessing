@@ -59,7 +59,13 @@ public class ProcessamentoImagem {
                             break;
                 case 'l':   func = new Limiar(Integer.parseInt(args[2]));
                             break;
-                default:    processar = false;
+                case 'e':   func = new Histograma();
+                            break;
+       /*         case 'h':   Histograma hist = new Histograma(matrizes);
+                            hist.equalizar();
+                            processar = false;
+                            break;
+        */        default:    processar = false;
                             System.out.println("Erro! Operação inválida!");
                             break;
             }
