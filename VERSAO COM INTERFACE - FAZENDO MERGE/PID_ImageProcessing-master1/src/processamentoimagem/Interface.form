@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="negativo.setVisible(false);&#xa;binario.setVisible(false);&#xa;potencia.setVisible(false);&#xa;equalizacao.setVisible(false);&#xa;soma.setVisible(false);&#xa;subtracao.setVisible(false);&#xa;laplaciano.setVisible(false);&#xa;mediana.setVisible(false);&#xa;moda.setVisible(false);&#xa;min.setVisible(false);&#xa;max.setVisible(false);"/>
+      </AuxValues>
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="jMenu1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Arquivo"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+A"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Abrir"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuItem1MouseReleased"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <Component id="jLabel1" min="-2" pref="189" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="equalizacao" alignment="0" max="32767" attributes="0"/>
+                  <Component id="potencia" alignment="0" max="32767" attributes="0"/>
+                  <Component id="binario" alignment="0" max="32767" attributes="0"/>
+                  <Component id="negativo" alignment="0" max="32767" attributes="0"/>
+                  <Component id="soma" alignment="0" max="32767" attributes="0"/>
+                  <Component id="subtracao" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="laplaciano" pref="89" max="32767" attributes="0"/>
+                  <Component id="mediana" alignment="0" max="32767" attributes="0"/>
+                  <Component id="moda" alignment="0" max="32767" attributes="0"/>
+                  <Component id="min" alignment="0" max="32767" attributes="0"/>
+                  <Component id="max" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jLabel1" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="negativo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="laplaciano" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="binario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="mediana" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="potencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="moda" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="equalizacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="min" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="soma" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="max" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="subtracao" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="65" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+    </Component>
+    <Component class="javax.swing.JButton" name="negativo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Negativo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="negativoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="soma">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Soma"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="potencia">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Potencia"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="binario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Binario"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="equalizacao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Equaliza&#xe7;&#xe3;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="subtracao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Subtra&#xe7;&#xe3;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="laplaciano">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Laplaciano"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="mediana">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mediana"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="moda">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Moda"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="min">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Min"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="max">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Max"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
