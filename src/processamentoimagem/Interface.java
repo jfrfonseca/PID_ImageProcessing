@@ -4,17 +4,28 @@
  */
 package processamentoimagem;
 
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+
 /**
  *
- * @author Ze
+ * @author 407451
  */
-public class Interface extends javax.swing.JPanel {
+public class Interface extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interface
-     */
+    public String caminhoa;
+    public String caminhob;
+    public javax.swing.ImageIcon ia;
+    public javax.swing.ImageIcon ib;
+    
+    ProcessamentoImagem ativar = new ProcessamentoImagem();
+    String []str = new String[4];
+    
     public Interface() {
         initComponents();
+
     }
 
     /**
@@ -26,70 +37,506 @@ public class Interface extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        selecionaImagem = new javax.swing.JFileChooser();
-        jPanel1 = new javax.swing.JPanel();
-        butaoselect = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        negativo = new javax.swing.JButton();
+        soma = new javax.swing.JButton();
+        potencia = new javax.swing.JButton();
+        binario = new javax.swing.JButton();
+        equalizacao = new javax.swing.JButton();
+        subtracao = new javax.swing.JButton();
+        laplaciano = new javax.swing.JButton();
+        mediana = new javax.swing.JButton();
+        moda = new javax.swing.JButton();
+        min = new javax.swing.JButton();
+        max = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        negativo1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(700, 500));
 
-        butaoselect.setText("Selecione a Imagem");
-        selecionaImagem.setVisible(true);
-        butaoselect.addActionListener(new java.awt.event.ActionListener() {
+        negativo.setText("Negativo");
+        negativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butaoselectActionPerformed(evt);
+                negativoActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(butaoselect)
-                .addContainerGap(174, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(butaoselect)
-                .addContainerGap(332, Short.MAX_VALUE))
-        );
+        soma.setText("Soma");
+        soma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                somaActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        potencia.setText("Potencia");
+        potencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                potenciaActionPerformed(evt);
+            }
+        });
+
+        binario.setText("Binario");
+        binario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                binarioActionPerformed(evt);
+            }
+        });
+
+        equalizacao.setText("Equalização");
+        equalizacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                equalizacaoActionPerformed(evt);
+            }
+        });
+
+        subtracao.setText("Subtração");
+        subtracao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subtracaoActionPerformed(evt);
+            }
+        });
+
+        laplaciano.setText("Laplaciano");
+        laplaciano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                laplacianoActionPerformed(evt);
+            }
+        });
+
+        mediana.setText("Mediana");
+        mediana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medianaActionPerformed(evt);
+            }
+        });
+
+        moda.setText("Moda");
+        moda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modaActionPerformed(evt);
+            }
+        });
+
+        min.setText("Min");
+        min.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minActionPerformed(evt);
+            }
+        });
+
+        max.setText("Max");
+        max.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maxActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setText("PARAMETROS");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        negativo1.setText("Customizado");
+        negativo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                negativo1ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Suavização");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jMenu1.setText("Arquivo");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Abrir");
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jMenuItem1MouseReleased(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        negativo.setVisible(false);
+        binario.setVisible(false);
+        potencia.setVisible(false);
+        equalizacao.setVisible(false);
+        soma.setVisible(false);
+        subtracao.setVisible(false);
+        laplaciano.setVisible(false);
+        mediana.setVisible(false);
+        moda.setVisible(false);
+        min.setVisible(false);
+        max.setVisible(false);
+
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(equalizacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(potencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(binario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(negativo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(soma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(subtracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(negativo1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(laplaciano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(mediana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(moda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(min, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(max, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(negativo)
+                    .addComponent(laplaciano))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(binario)
+                    .addComponent(mediana))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(potencia)
+                    .addComponent(moda))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(equalizacao)
+                    .addComponent(min))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(soma)
+                    .addComponent(max))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(subtracao)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(negativo1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void butaoselectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butaoselectActionPerformed
+    private void jMenuItem1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseReleased
+        
+         
+        JFileChooser a = new JFileChooser(".");
+        a.showOpenDialog(this);
+        File fa = a.getSelectedFile();
+        caminhoa = fa.getName();
+        ia = new javax.swing.ImageIcon(caminhoa);
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+        
        
-    }//GEN-LAST:event_butaoselectActionPerformed
+        negativo.setVisible(true);
+        binario.setVisible(true);
+        potencia.setVisible(true);
+        equalizacao.setVisible(true);
+        soma.setVisible(true);
+        subtracao.setVisible(true);
+        laplaciano.setVisible(true);
+        mediana.setVisible(true);
+        moda.setVisible(true);
+        min.setVisible(true);
+        max.setVisible(true);
+        jTextField1.setVisible(true);
+        negativo1.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1MouseReleased
 
+    private void negativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negativoActionPerformed
+
+        str[0] = ia.toString();
+        str[1] = "-negativo";
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"_NEG.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_negativoActionPerformed
+
+    private void binarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_binarioActionPerformed
+        
+        str[0] = ia.toString();
+        str[1] = "-limiar";
+        str[2] = jTextField1.getText();
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"_LIM.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_binarioActionPerformed
+
+    private void potenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potenciaActionPerformed
+        str[0] = ia.toString();
+        str[1] = "-potencia";
+        str[2] = jTextField1.getText();
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"_POT.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_potenciaActionPerformed
+
+    private void equalizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equalizacaoActionPerformed
+        str[0] = ia.toString();
+        str[1] = "-equalizacao";
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"_HIS_EQ.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_equalizacaoActionPerformed
+
+    private void somaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_somaActionPerformed
+        
+        JFileChooser b = new JFileChooser(".");
+        b.showOpenDialog(this);
+        File fb = b.getSelectedFile();
+        caminhob = fb.getName();
+        ib = new javax.swing.ImageIcon(caminhob);
+        jLabel2.setIcon(ib);
+        jLabel2.setVisible(true);
+        
+        
+        str[0] = ia.toString();
+        str[1] = "-soma";
+        str[2] = ib.toString();
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"+"+caminhob+"_SOM.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_somaActionPerformed
+
+    private void subtracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtracaoActionPerformed
+                
+        JFileChooser b = new JFileChooser(".");
+        b.showOpenDialog(this);
+        File fb = b.getSelectedFile();
+        caminhob = fb.getName();
+        ib = new javax.swing.ImageIcon(caminhob);
+        jLabel2.setIcon(ib);
+        jLabel2.setVisible(true);
+        
+        
+        str[0] = ia.toString();
+        str[1] = "-subtracao";
+        str[2] = ib.toString();
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"-"+caminhob+"_SUB.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_subtracaoActionPerformed
+
+    private void laplacianoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laplacianoActionPerformed
+        
+        str[0] = ia.toString();
+        str[1] = "-filtro";
+        str[2] = "-laplaciano";
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"_FILTRO_LAPL.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_laplacianoActionPerformed
+
+    private void medianaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medianaActionPerformed
+        str[0] = ia.toString();
+        str[1] = "-filtro";
+        str[2] = "-mediana";
+        str[3] = jTextField1.getText();
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"_FILTRO_MED.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_medianaActionPerformed
+
+    private void modaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modaActionPerformed
+        str[0] = ia.toString();
+        str[1] = "-filtro";
+        str[2] = "-moda";
+        str[3] = jTextField1.getText();
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"_FILTRO_MOD.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_modaActionPerformed
+
+    private void minActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minActionPerformed
+        str[0] = ia.toString();
+        str[1] = "-filtro";
+        str[2] = "-min";
+        str[3] = jTextField1.getText();
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"_FILTRO_MIN.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_minActionPerformed
+
+    private void maxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxActionPerformed
+        str[0] = ia.toString();
+        str[1] = "-filtro";
+        str[2] = "-max";
+        str[3] = jTextField1.getText();
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"_FILTRO_MAX.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_maxActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void negativo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negativo1ActionPerformed
+        str[0] = ia.toString();
+        str[1] = "-filtro";
+        str[2] = "-customizado";
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"_CUST.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_negativo1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        str[0] = ia.toString();
+        str[1] = "-filtro";
+        str[2] = "-suavizacao";
+        str[3] = jTextField1.getText();
+        
+        ativar.main(str);
+        
+        ia = new javax.swing.ImageIcon(caminhoa+"_FILTRO_SUAV.png"); 
+        
+        jLabel1.setIcon(ia);
+        jLabel1.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Interface().setVisible(true);
+            }
+        });
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton butaoselect;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JFileChooser selecionaImagem;
+    private javax.swing.JButton binario;
+    private javax.swing.JButton equalizacao;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton laplaciano;
+    private javax.swing.JButton max;
+    private javax.swing.JButton mediana;
+    private javax.swing.JButton min;
+    private javax.swing.JButton moda;
+    private javax.swing.JButton negativo;
+    private javax.swing.JButton negativo1;
+    private javax.swing.JButton potencia;
+    private javax.swing.JButton soma;
+    private javax.swing.JButton subtracao;
     // End of variables declaration//GEN-END:variables
 }

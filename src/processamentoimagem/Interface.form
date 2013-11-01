@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Container class="javax.swing.JPanel" name="jPanel2">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
-    <Component class="javax.swing.JFileChooser" name="selecionaImagem">
-    </Component>
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="negativo.setVisible(false);&#xa;binario.setVisible(false);&#xa;potencia.setVisible(false);&#xa;equalizacao.setVisible(false);&#xa;soma.setVisible(false);&#xa;subtracao.setVisible(false);&#xa;laplaciano.setVisible(false);&#xa;mediana.setVisible(false);&#xa;moda.setVisible(false);&#xa;min.setVisible(false);&#xa;max.setVisible(false);"/>
+      </AuxValues>
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="jMenu1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Arquivo"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+A"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Abrir"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuItem1MouseReleased"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Menu>
   </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[700, 500]"/>
+    </Property>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -35,55 +53,205 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="175" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="173" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="equalizacao" alignment="0" max="32767" attributes="0"/>
+                      <Component id="potencia" alignment="0" max="32767" attributes="0"/>
+                      <Component id="binario" alignment="0" max="32767" attributes="0"/>
+                      <Component id="negativo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="soma" alignment="0" max="32767" attributes="0"/>
+                      <Component id="subtracao" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="negativo1" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="laplaciano" max="32767" attributes="0"/>
+                          <Component id="mediana" alignment="0" max="32767" attributes="0"/>
+                          <Component id="moda" alignment="0" max="32767" attributes="0"/>
+                          <Component id="min" alignment="0" max="32767" attributes="0"/>
+                          <Component id="max" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jButton1" alignment="0" pref="89" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jTextField1" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="negativo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="laplaciano" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="binario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="mediana" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="potencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="moda" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="equalizacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="min" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="soma" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="max" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="subtracao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="negativo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
+          <Component id="jLabel1" max="32767" attributes="0"/>
+          <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
-                  <Component id="butaoselect" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="174" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="butaoselect" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="332" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JButton" name="butaoselect">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Selecione a Imagem"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butaoselectActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="selecionaImagem.setVisible(true);"/>
-          </AuxValues>
-        </Component>
-      </SubComponents>
-    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+    </Component>
+    <Component class="javax.swing.JButton" name="negativo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Negativo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="negativoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="soma">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Soma"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="somaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="potencia">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Potencia"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="potenciaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="binario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Binario"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="binarioActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="equalizacao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Equaliza&#xe7;&#xe3;o"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="equalizacaoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="subtracao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Subtra&#xe7;&#xe3;o"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subtracaoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="laplaciano">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Laplaciano"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="laplacianoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="mediana">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mediana"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="medianaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="moda">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Moda"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="min">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Min"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="minActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="max">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Max"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maxActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="PARAMETROS"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="negativo1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Customizado"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="negativo1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Suaviza&#xe7;&#xe3;o"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

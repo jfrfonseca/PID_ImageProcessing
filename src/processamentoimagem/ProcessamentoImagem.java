@@ -12,11 +12,14 @@ public class ProcessamentoImagem {
     protected static ArrayList<String> imageName = new ArrayList<String>();
     protected static IFuncao func;
 
+    public ProcessamentoImagem() {
+    }
+    
+    
+
     public static void main(String[] args){
-        Interface face = new Interface();
-        
-        
-        Boolean processar = true;
+                    
+        boolean processar = true;
         if (args.length>=2){
             readImage(args[0]);
             switch(args[1].charAt(1)){
@@ -78,7 +81,7 @@ public class ProcessamentoImagem {
         }  
     }
 
-    private static void readImage(String _imageName) {
+    public static void readImage(String _imageName) {
         //reads a image, and fill out the working matriz, and prints a grayscale copy of the image---------
         BufferedImage imagem, imagemPB;
         imageName.add(_imageName);
