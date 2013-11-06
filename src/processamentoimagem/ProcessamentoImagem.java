@@ -18,7 +18,20 @@ public class ProcessamentoImagem {
     
 
     public static void main(String[] args){
-                    
+        
+        
+        readImage("imagem.gif");
+        System.out.println("lido");
+        Fourier fu = new Fourier();
+        System.out.println("calculando");
+        fu.calcularEspectro(matrizes.get(0));
+        System.out.println("calculado");
+        System.out.println("revertendo");        
+        fu.reverterEspectro();        
+        System.out.println("revertido"); 
+        fu.printEspectroRevertido("imagem.gif", "nenhum");
+        
+        /*
         boolean processar = true;
         if (args.length>=2){
             readImage(args[0]);
@@ -64,11 +77,7 @@ public class ProcessamentoImagem {
                             break;
                 case 'e':   func = new Histograma();
                             break;
-       /*         case 'h':   Histograma hist = new Histograma(matrizes);
-                            hist.equalizar();
-                            processar = false;
-                            break;
-        */        default:    processar = false;
+                default:    processar = false;
                             System.out.println("Erro! Operação inválida!");
                             break;
             }
@@ -78,7 +87,8 @@ public class ProcessamentoImagem {
             }
         }else{
             System.out.println("Erro! Ao menos um arquivo de imagem e uma operação devem ser passados como parâmetro!");
-        }  
+        }          
+        */
     }
 
     public static void readImage(String _imageName) {
@@ -115,6 +125,8 @@ public class ProcessamentoImagem {
                     //converts to 1 byte grayscale, and saves to the working matriz
                     gray = (int) (Math.round(red * 0.3 + green * 0.59 + blue * 0.11));
                     matriz[i][j] = gray;
+                    
+                    //System.out.print(gray+"\t");
 
                     //converts to 3 bytes grayscale
                     gray = gray + (gray << 8) + (gray << 16);
@@ -124,6 +136,7 @@ public class ProcessamentoImagem {
 
                     //System.out.print("\t"+gray);
                 }
+                //System.out.println("");
             }
             ImageIO.write(imagemPB, "PNG", new File(imageName.get(0) + "_GS.png"));
             matrizes.add(matriz);
