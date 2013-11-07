@@ -45,4 +45,12 @@ public class Espectro {
         espacial[(int)posX][(int)posY].multiplica(ajuste);
     }
     
+    double distancia(double posX, double posY){
+        return Math.sqrt(Math.pow(posX-(espacial.length/2), 2) + Math.pow(posY-(espacial[0].length/2), 2));
+    }
+    
+    void zera(double posX, double posY){
+        multiplica(posX, posY, 0.0);
+    }
+    
 }

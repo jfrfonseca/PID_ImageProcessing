@@ -19,6 +19,7 @@ public class Fourier {
     
     protected Espectro espectro;
     protected double revertido[][];
+    protected double linhas, colunas;
     
     //TRANSFORMADA DISCRETA 2D TRADICIONAL
     public void calcularEspectro(int[][] origem) {
@@ -27,6 +28,9 @@ public class Fourier {
         double N = origem[0].length;
         double ajuste = (1/(M*N));
         espectro = new Espectro(M,N);
+        
+        linhas = M;
+        colunas = N;
 
         Double P, Q, real, imag;
         for (double u=0; u<M; u = u+1){
@@ -52,7 +56,7 @@ public class Fourier {
                 //System.out.print((int)(espectro.getReal(u, v))+"\t");
             }            
             //System.out.println("");
-            System.out.print("\r\r"+100.0*u/M+"% do espectro foi computado;");
+            System.out.println(100.0*u/M);
         }
     }
     
@@ -87,7 +91,7 @@ public class Fourier {
                 //System.out.print((int)revertido[(int)u][(int)v]+"\t");
             }            
             //System.out.println("");
-            System.out.print("\r\r"+100.0*u/M+"% do espectro foi revertido;");
+            System.out.println(100.0*u/M);
         }                     
                         
     }
@@ -108,6 +112,40 @@ public class Fourier {
         }
     }
     
+    public void printEspectroImaginario(String nomeDaImagem) {
+        BufferedImage imagemSaida = new BufferedImage(espectro.getLinhas(), espectro.getColunas(), BufferedImage.TYPE_3BYTE_BGR);
+        int inverso;
+        for (int i = 0; i < espectro.getLinhas(); i++) {
+            for (int j = 0; j < espectro.getColunas(); j++) {
+                inverso = (int)espectro.getImaginario(i,j) + ((int)espectro.getImaginario(i,j) << 8) + ((int)espectro.getImaginario(i,j) <<16);
+                imagemSaida.setRGB(i, j, inverso);
+            }
+        }
+        try {        
+            ImageIO.write(imagemSaida, "PNG", new File(nomeDaImagem + "_ESPECTRO_IMAGINARIO.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Negativo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void printEspectro(String nomeDaImagem){
+        BufferedImage imagemSaida = new BufferedImage(espectro.getLinhas(), espectro.getColunas(), BufferedImage.TYPE_3BYTE_BGR);
+        int inverso;
+        for (int i = 0; i < espectro.getLinhas(); i++) {
+            for (int j = 0; j < espectro.getColunas(); j++) {
+                inverso =     ((int)espectro.getImaginario(i,j) + (int)espectro.getReal(i,j)) 
+                            + (((int)espectro.getImaginario(i,j) + (int)espectro.getReal(i,j)) << 8) 
+                            + (((int)espectro.getImaginario(i,j) + (int)espectro.getReal(i,j)) <<16);
+                imagemSaida.setRGB(i, j, inverso);
+            }
+        }
+        try {        
+            ImageIO.write(imagemSaida, "PNG", new File(nomeDaImagem + "_ESPECTRO.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Negativo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void printEspectroRevertido(String nomeDaImagem, String nomeDoFiltro) {
         BufferedImage imagemSaida = new BufferedImage(revertido.length, revertido[0].length, BufferedImage.TYPE_3BYTE_BGR);
         int inverso;
@@ -118,7 +156,7 @@ public class Fourier {
             }
         }
         try {        
-            ImageIO.write(imagemSaida, "PNG", new File(nomeDaImagem + "FILTRO_FREQ_" + nomeDoFiltro + "_.png"));
+            ImageIO.write(imagemSaida, "PNG", new File(nomeDaImagem + "_FILTRO_FREQ_" + nomeDoFiltro + "_.png"));
         } catch (IOException ex) {
             Logger.getLogger(Negativo.class.getName()).log(Level.SEVERE, null, ex);
         }

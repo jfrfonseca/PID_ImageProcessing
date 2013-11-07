@@ -19,17 +19,14 @@ public class ProcessamentoImagem {
 
     public static void main(String[] args){
         
+        imageName.add("lena.png");
         
-        readImage("imagem.gif");
-        System.out.println("lido");
-        Fourier fu = new Fourier();
-        System.out.println("calculando");
-        fu.calcularEspectro(matrizes.get(0));
-        System.out.println("calculado");
-        System.out.println("revertendo");        
-        fu.reverterEspectro();        
-        System.out.println("revertido"); 
-        fu.printEspectroRevertido("imagem.gif", "nenhum");
+        readImage(imageName.get(0));
+        
+        FiltroEspectralIdealPB fipb = new FiltroEspectralIdealPB(3.0);
+        fipb.processarImagem(matrizes);
+        fipb.printEspectro(imageName.get(0));
+        fipb.printResultado(imageName);
         
         /*
         boolean processar = true;
