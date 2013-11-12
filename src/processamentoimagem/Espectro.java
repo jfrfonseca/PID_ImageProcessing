@@ -16,17 +16,9 @@ public class Espectro {
         espacial = new Complexo[(int)linhas][(int)colunas];
         for (int i=0; i<linhas; i++){
             for (int j=0; j<colunas; j++){
-                espacial[i][j] = new Complexo();
+                espacial[i][j] = new Complexo(0.0, 0.0);
             }
         }
-    }
-
-    public int getLinhas(){
-        return espacial.length;
-    }
-    
-    public int getColunas(){
-        return espacial[0].length;
     }
     
     public double getReal(double posX, double posY){
@@ -51,6 +43,10 @@ public class Espectro {
     
     void zera(double posX, double posY){
         multiplica(posX, posY, 0.0);
+    }
+
+    void parear(double u, double v) {
+        espacial[(int)(v)][(int)(u)] = espacial[(int)u][(int)v];
     }
     
 }

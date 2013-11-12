@@ -10,8 +10,13 @@ package processamentoimagem;
  */
 class Complexo {
     
-    protected double real = 0.0;
-    protected double imaginario = 0.0;
+    protected double real;
+    protected double imaginario;
+
+    Complexo(double real, double imaginario) {
+        this.real = real;
+        this.imaginario = imaginario;
+    }
     
     public void soma(double addReal, double addImaginario){
         real += addReal;

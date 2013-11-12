@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package processamentoimagem;
 
 import java.util.ArrayList;
@@ -10,19 +6,17 @@ import java.util.ArrayList;
  *
  * @author Ze
  */
-public class FiltroEspectralIdealPB extends Fourier implements IFuncao {
+public class FiltroEspectralButterworthPA extends Fourier implements IFuncao {
     
     protected double distanciaDeCorte;
 
-    public FiltroEspectralIdealPB(double distancia){
+    public FiltroEspectralButterworthPA(double distancia){
         distanciaDeCorte = distancia;
     }
 
     @Override
     void filtrar(double u, double v) {
-        if(espectro.distancia(u, v) > distanciaDeCorte){
-            espectro.zera(u, v);
-        }
+        espectro.multiplica(u, v, 255-(1/(1+Math.pow((espectro.distancia(u, v)/distanciaDeCorte), 4.0))) );
     }    
         
     @Override
@@ -32,7 +26,7 @@ public class FiltroEspectralIdealPB extends Fourier implements IFuncao {
     
     @Override
     public void printResultado(ArrayList<String> nomeDaImagem) {
-        printEspectroRevertido(nomeDaImagem.get(0), "IDEAL_PB");
+        printEspectroRevertido(nomeDaImagem.get(0), "BUTTERWORTH_PA");
     }
     
     @Override

@@ -10,17 +10,17 @@ import java.util.ArrayList;
  *
  * @author Ze
  */
-public class FiltroEspectralIdealPB extends Fourier implements IFuncao {
+public class FiltroEspectralIdealPA extends Fourier implements IFuncao {
     
     protected double distanciaDeCorte;
 
-    public FiltroEspectralIdealPB(double distancia){
+    public FiltroEspectralIdealPA(double distancia){
         distanciaDeCorte = distancia;
     }
 
     @Override
     void filtrar(double u, double v) {
-        if(espectro.distancia(u, v) > distanciaDeCorte){
+        if(espectro.distancia(u, v) <= distanciaDeCorte){
             espectro.zera(u, v);
         }
     }    
@@ -32,7 +32,7 @@ public class FiltroEspectralIdealPB extends Fourier implements IFuncao {
     
     @Override
     public void printResultado(ArrayList<String> nomeDaImagem) {
-        printEspectroRevertido(nomeDaImagem.get(0), "IDEAL_PB");
+        printEspectroRevertido(nomeDaImagem.get(0), "IDEAL_PA");
     }
     
     @Override

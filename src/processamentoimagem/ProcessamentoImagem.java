@@ -19,14 +19,14 @@ public class ProcessamentoImagem {
 
     public static void main(String[] args){
         
-        imageName.add("lena.png");
+        imageName.add("imagem.gif");
         
         readImage(imageName.get(0));
         
-        FiltroEspectralIdealPB fipb = new FiltroEspectralIdealPB(3.0);
-        fipb.processarImagem(matrizes);
-        fipb.printEspectro(imageName.get(0));
-        fipb.printResultado(imageName);
+        FiltroEspectralGaussianoPA fipx = new FiltroEspectralGaussianoPA(5.0);
+        fipx.processarImagem(matrizes);
+        fipx.printEspectro(imageName.get(0));
+        fipx.printResultado(imageName);
         
         /*
         boolean processar = true;
